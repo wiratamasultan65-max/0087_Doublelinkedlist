@@ -97,6 +97,19 @@ public:
         cin >> rollNo;
 
         Node *current = START;
-    }
+
+        //step 1: mencari node yang akan dihapus
+        while (current != NULL && current->noMhs != rollNo) 
+            current = current->Next;
+
+        if (current == NULL)
+        {
+            cout << "\nRecord not found." << endl;
+            return;
+        }
+
+        
+        
+    
 
  
