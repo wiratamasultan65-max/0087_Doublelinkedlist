@@ -123,8 +123,17 @@ public:
                 current->Next->Prev = current->Prev; // step 3b: if current.next != NULL then current.next.prev = current.prev
         }
 
+        // step 4: menghapus node
+        delete current;
+        cout << "\nRecord deleted successfully." << endl;
+    }
+
+    void traverse()
+    {
+        if (START == NULL)
+        {
+            cout << "\nList is empty." << endl;
+            return;
+        }
 
         
-    
-
- 
