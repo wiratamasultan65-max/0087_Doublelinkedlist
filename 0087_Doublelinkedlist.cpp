@@ -27,6 +27,9 @@ public:
 
         //Step 1: mengalokasikan memory untuk node baru
         Node *newnode = new Node;
-        
+
+        //Step 2: mengisi data pada node baru
+        newnode->noMhs = nim;
+
     }
 };
