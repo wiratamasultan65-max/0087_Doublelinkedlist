@@ -24,5 +24,9 @@ public:
         int nim;
         cout << "/nEnter the roll number of the student: ";
         cin >> nim;
+
+        //Step 1: mengalokasikan memory untuk node baru
+        Node *newnode = new Node;
+        
     }
 };
