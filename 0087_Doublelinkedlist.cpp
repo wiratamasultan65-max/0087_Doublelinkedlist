@@ -9,7 +9,8 @@ public:
     Node *Prev;
 };
 
-class DoubleLinkedList {
+class DoubleLinkedList
+{
 private:
     Node *START;
 
@@ -19,10 +20,11 @@ public:
         START = NULL;
     }
 
+
     void addnode()
     {
         int nim;
-        cout << "/nEnter the roll number of the student: ";
+        cout << "\nEnter the roll number of the student: ";
         cin >> nim;
 
         //Step 1: mengalokasikan memory untuk node baru
@@ -39,4 +41,46 @@ public:
                 cout << "Duplicate roll number not allowed." << endl;
                 return;
             }
+            
+            //Step 4 newnode->Next = START;
+            newnode->Next = START;
+
+            //Step 5: START->Prev = newnode (if START exists)
+            if (START != NULL) 
+            {
+                START->Prev = newnode;
+            }
+
+            //Step 6: newNode.prev = NULL;
+            newnode->Prev = NULL;
+
+            //Step 7: START = newnode;
+            START = newnode;
+            return;
+        }
+
+        //Step 8: mencari posisi yang tepat untuk menyisipkan node baru
+        Node *current = START;
+        while (current->Next != NULL && current->Next->noMhs < nim) 
+        {
+            current = current->Next;
+        }
+
+        if (current->Next != NULL && nim == current->Next->noMhs) 
+        {
+            cout << "\nDuplicate roll number not allowed." << endl;
+            return;
+        }
+
+        //step 9: menyisipkan node baru setelah current
+        newnode->Next = current->Next; //step 9a: newNode.next = current.next
+        newnode->Prev = current;    //step 9b: newnode.prev = current
+
+        //insert last node
+        if (current->Next != NULL) 
+            current->Next->Prev = newnode; //step 9c: if current.next != NULL then current.next.prev = newnode
+            current->Next = newnode; //step 9d: current.next = newnode
         
+        current->Next = newnode; //step 9d: current.next = newnode
+    }
+};    
