@@ -136,4 +136,7 @@ public:
             return;
         }
 
+        //Step 1: Tandai node pertama dengan START
+       Node *current = START;
+
         
