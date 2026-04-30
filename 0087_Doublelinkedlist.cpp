@@ -108,7 +108,22 @@ public:
             return;
         }
 
-        
+        // step 2 : jika node yang akan dihapus adalah node pertama
+        if (current == START)
+        {
+            START = current->Next; // step 2a: START = current.next
+            if (START != NULL) 
+                START->Prev = NULL; // step 2b: if START != NULL then START.prev = NULL
+        }
+        else
+        {
+            current->Prev->Next = current->Next; // step 3a: current.prev.next = current.next
+
+            if (current->Next != NULL) 
+                current->Next->Prev = current->Prev; // step 3b: if current.next != NULL then current.next.prev = current.prev
+        }
+
+
         
     
 
