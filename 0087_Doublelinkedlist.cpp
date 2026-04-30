@@ -31,5 +31,12 @@ public:
         //Step 2: mengisi data pada node baru
         newnode->noMhs = nim;
 
-    }
-};
+        //Step 3: menghubungkan node baru dengan linked list
+        if (START == NULL || nim <= START->noMhs) 
+        {
+            if (START != NULL && nim == START->noMhs) 
+            {
+                cout << "Duplicate roll number not allowed." << endl;
+                return;
+            }
+        
